@@ -26,6 +26,7 @@ int main(){
 	for(i=0;i<100;i++)
 	{
 		str2[i]=getchar();
+		printf("%c\n",str2[i]);
 		if(str2[i]==EOF)
 		{
 			break;
@@ -33,7 +34,8 @@ int main(){
 	}
 
 	str_cat(str1,str2,result);
-	printf("合成结果:%s\n",result);	
+	printf("合成结果:\n");
+	printf("%s\n",result);
 	return (0);
 }
 
