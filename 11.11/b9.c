@@ -9,29 +9,12 @@ int main(){
 	int i;
 
 	printf("单个字符串最多100个,超过直接截断\n");
+
 	printf("请输入第一串字符\n");
-
-	for(i=0;i<100;i++)
-	{
-		str1[i]=getchar();
-		if(str1[i]==EOF)
-		{
-			break;
-		}
-	}
-
-	fflush(stdin);
+	gets(str1);
 
 	printf("请输入第二串字符\n");
-	for(i=0;i<100;i++)
-	{
-		str2[i]=getchar();
-		printf("%c\n",str2[i]);
-		if(str2[i]==EOF)
-		{
-			break;
-		}
-	}
+	gets(str2);
 
 	str_cat(str1,str2,result);
 	printf("合成结果:\n");
@@ -41,13 +24,13 @@ int main(){
 
 int str_cat(char a[],char b[],char c[]){
 	int i=0,j=0;
-	while(a[i+1]!=EOF)
+	while(a[i]!='\0')
 	{
 		c[i]=a[i];
 		i++;
 	}
 
-	while(b[j+1]!=EOF)
+	while(b[j]!='\0')
 	{
 		c[i]=b[j];
 		i++,j++;
