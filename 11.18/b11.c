@@ -4,9 +4,9 @@ int strcmp(char *str1,char *str2);
 
 int main(){
 	char s1[100],s2[100];
-	printf("input the first string\n:");
+	printf("input the first string:\n");
 	gets(s1);
-	printf("input the second string\n");
+	printf("input the second string:\n");
 	gets(s2);
 
 	int result;

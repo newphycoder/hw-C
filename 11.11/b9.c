@@ -24,18 +24,17 @@ int main(){
 
 int str_cat(char a[],char b[],char c[]){
 	int i=0,j=0;
-	while(a[i]!='\0')
+	while(a[i]!='\0'&&i<100)
 	{
 		c[i]=a[i];
 		i++;
 	}
 
-	while(b[j]!='\0')
+	while(b[j]!='\0'&&j<100)
 	{
 		c[i]=b[j];
 		i++,j++;
 	}
-
 	c[i]='\0';
 	return (0);
 }

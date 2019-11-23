@@ -60,4 +60,5 @@ int trans(double num,int n,char num_n[],int i){
 			break;
 		}
 	}
+	return (0);
 }

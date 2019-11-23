@@ -2,7 +2,7 @@
 
 int main(){
 	int n;
-	int *a;
+	int a[100];
 	printf("the number of people:\n");
 	scanf("%d",&n);
 	for(int i=0;i<n;i++)
