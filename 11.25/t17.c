@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int sort(int* a,int size);
-int exchange(int* order,int* a,int len);
+int exchange(int* order,int* a,int len,int num,int n);
 
 int main(){
 	int i,j;
@@ -36,15 +36,16 @@ int main(){
 }
 
 int sort(int* a,int n){
+	int t;
 	int* order;
-	order = malloc( n*n * int );
-	for (int i = 0; i < n*n-1 ; ++i)
+	order = malloc( n*n * sizeof(int) );
+	for (int i = 0; i < n*n ; ++i)
 	{
 		order[i]=i;
 	}
 	for (int i = 0; i < n*n-1; ++i)
 	{
-		for(int j =i; j< n*n-1; ++j)
+		for(int j =0; j< n*n-1; ++j)
 		{
 			if(a[order[j]]>a[order[j+1]])
 			{
@@ -54,86 +55,38 @@ int sort(int* a,int n){
 			}
 		}
 	}
-
-	for(int i =0; i< n*n-1; ++i)
+	exchange(order,a,0,0,n);
+	exchange(order,a,n-1,1,n);
+	exchange(order,a,n*(n-1),2,n);
+	exchange(order,a,n*n-1,3,n);
+	for (int i = 0; i < n*n; ++i)
 	{
-		if(order[i]=0)
-		{
-			m=i;
-			break;
-		}
+		printf("%d\n",a[order[i]]);
 	}
-	_a=a[order[0]];
-	t=order[0];
-	a[order[0]]=a[0];
-	order[0]=0;
-	a[0]=_a;
-	order[m]=t;
-
-	for(int i =0; i< n*n-1; ++i)
+	for (int i = 0; i < n*n; ++i)
 	{
-		if(order[i]=n-1)
-		{
-			m=i;
-			break;
-		}
+		printf("%d\n",order[i]);
 	}
-	_a=a[order[1]];
-	t=order[1];
-	a[order[1]]=a[n-1];
-	order[1]=n-1;
-	a[n-1]=_a;
-	order[m]=t;
-
-	for(int i =0; i< n*n-1; ++i)
-	{
-		if(order[i]=n*(n-1))
-		{
-			m=i;
-			break;
-		}
-	}
-	_a=a[order[2]];
-	t=order[2];
-	a[order[2]]=a[n*(n-1)];
-	order[2]=n*(n-1);
-	a[n*(n-1)]=_a;
-	order[m]=t;
-
-	for(int i =0; i< n*n-1; ++i)
-	{
-		if(order[i]=n*n-1)
-		{
-			m=i;
-			break;
-		}
-	}
-	_a=a[order[3]];
-	t=order[3];
-	a[order[3]]=a[n*n-1];
-	order[3]=n*n-1;
-	a[n*n-1]=_a;
-	order[m]=t;
-
+	exchange(order,a,n*(n/2)+n/2,n*n-1,n);
 }
 
-int exchange(int* order,int* a,int len,int num){
+int exchange(int* order,int* a,int len,int num,int n){
 	int t;
 	int m;
 	int _a;
-	for(int i =0; i< n*n-1; ++i)
+	for(int i =0; i< n*n; ++i)
 	{
-		if(order[i]=len)
+		if(order[i]==len)
 		{
 			m=i;
 			break;
 		}
 	}
 	_a=a[order[num]];
-	t=order[num];
 	a[order[num]]=a[len];
+	a[len]=_a;
+	t=order[num];
 	order[num]=len;
-	a[num]=_a;
 	order[m]=t;
-
+	return (0);
 }
