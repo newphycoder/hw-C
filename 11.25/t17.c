@@ -33,6 +33,9 @@ int main(){
 		printf("\n");
 		printf("\n");
 	}
+
+	free(matr);
+	return (0);
 }
 
 int sort(int* a,int n){
@@ -59,15 +62,10 @@ int sort(int* a,int n){
 	exchange(order,a,n-1,1,n);
 	exchange(order,a,n*(n-1),2,n);
 	exchange(order,a,n*n-1,3,n);
-	for (int i = 0; i < n*n; ++i)
-	{
-		printf("%d\n",a[order[i]]);
-	}
-	for (int i = 0; i < n*n; ++i)
-	{
-		printf("%d\n",order[i]);
-	}
 	exchange(order,a,n*(n/2)+n/2,n*n-1,n);
+
+	free(order);
+	return (0);
 }
 
 int exchange(int* order,int* a,int len,int num,int n){
