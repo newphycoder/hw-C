@@ -6,7 +6,7 @@ double integer(double (*func)(double),double inf,double sup);
 int main(){
 	printf("Integer[sin[x],{x,0,1}]=%lf\n",integer(sin,0,1));
 	printf("Integer[cos[x],{x,-1,1}]=%lf\n",integer(cos,-1,1));
-	printf("Integer[cos[x],{x,-1,1}]=%lf\n",integer(exp,-1,1));
+	printf("Integer[exp[x],{x,0,2}]=%lf\n",integer(exp,0,2));
 	return (0);
 }
 
