@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+#define total (5)
 
 struct student
 {
@@ -12,20 +15,16 @@ struct student
 
 int main()
 {
-	struct student stu[5]={
-		{101,"zhang",'M',19,95.5},
-		{102,"wang",'F',18,92.0},
-		{103,"zhao",'M',19,85.5},
-		{104,"li",'M',20,96.0},
-		{105,"gao",'G',17,91.0}
-		};
+	struct student (*stu)[total];
+	struct student stustore[total];
+	
 	int i;
-	int order[5];
-
-	for( i=0; i<5; i++)
+	for( i=0; i<total; i++)
 	{
-		order[i]=i;
+		stu = stustore;
 	}
+
+	input(stu,
 
 	return 0;
 }
