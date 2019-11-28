@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #define total (5)
-#define chance
+#define choose
 
 struct student
 {
@@ -55,8 +55,20 @@ int input(struct student *sp){
 
 int sort(struct student *sp){
 	int i,j;
-#ifdef chance
+#ifdef choose
+	int order;
+	struct student media;
 	for( i=0; i<total; i++)
 	{
+		order = i;
+		media = (sp+i);
+		for( j=i+1; j<total; j++)
+		{
+			if((sp+j)->grade < media->grade )
+			{
+				media = (sp+j);
+			}
+		}
 		
+	}
 
