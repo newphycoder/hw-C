@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct Book
 {
+	struct Book *last;
 	int num;
 	char name[30];
 	char author[30];
@@ -9,32 +11,28 @@ struct Book
 	struct Book *next;
 };
 
-int run(struct Book *head);
-struct Book *create(int amount);
+int run(struct Book **head);
+struct Book *add(struct Book *head);
 struct Book *find(struct Book *head,int target);
 int delect(struct Book **head,int target);
-int print(struct Book *head);
-int freememory(struct Book *head);
+int freememory(head);
 
 int main(){
-	int n;
-	int num;
-	struct Book *head;
-	printf("the amount of books:\n");
-	scanf("%d",&n);
-	head = create(n);
-	run(head);
+	struct Book *head = NULL;
+	run(&head);
 	freememory(head);
+
 	return (0);
 }
 
-int run(struct Book *head){
+int run(struct Book **ph){
 	int i;
 	printf("which operate do you want:\n");
 	printf("0.terminate\n");
-	printf("1.find a book\n");
-	printf("2.delect a book\n");
-	printf("3.print all books\n");
+	printf("1.add a book\n");
+	printf("2.find a book\n");
+	printf("3.delect a book\n");
+	printf("4.print all book\n");
 	scanf("%d",&i);
 	if (i==0)
 	{
@@ -42,10 +40,17 @@ int run(struct Book *head){
 	}
 	else if (i==1)
 	{
+		int n;
+		printf("the number of books\n");
+		scanf("%d",&n);
+		*hp = add(*hp)
+	}
+	else if (i==2)
+	{
 		struct Book *result;
 		printf("the number of the book\n");
 		scanf("%d",num);
-		result = find(head,num);
+		result = find(*hp,num);
 		if (result)
 		{
 			printf("number     :  %s\n",result->number);
@@ -58,14 +63,9 @@ int run(struct Book *head){
 			printf("can't find\n");
 		}
 	}
-	//may be some error
-	else if (i==2)
-	{
-		delect(&head,num);
-	}
 	else if (i==3)
 	{
-		print(head);
+		delect(hp,num);
 	}
 	else
 	{
@@ -113,11 +113,5 @@ int delect(struct Book **head,int target){
 	{
 		if ( (*head)->num = target)
 		{
-			*head = (*head)->next;
-			return (0)
-		}
-		head = &(*head)->next;
-	}
-	printf("can'tfind\n");
-	return (0);
+			head = head->next;
 }
