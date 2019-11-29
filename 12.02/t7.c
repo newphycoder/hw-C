@@ -12,7 +12,9 @@ struct Book
 int run(struct Book *head);
 struct Book *create(int amount);
 struct Book *find(struct Book *head,int target);
-struct Book *delect(struct Book *head,int target);
+int delect(struct Book **head,int target);
+int print(struct Book *head);
+int freememory(struct Book *head);
 
 int main(){
 	int n;
@@ -32,6 +34,7 @@ int run(struct Book *head){
 	printf("0.terminate\n");
 	printf("1.find a book\n");
 	printf("2.delect a book\n");
+	printf("3.print all books\n");
 	scanf("%d",&i);
 	if (i==0)
 	{
@@ -55,9 +58,14 @@ int run(struct Book *head){
 			printf("can't find\n");
 		}
 	}
+	//may be some error
 	else if (i==2)
 	{
-		delect(head,num);
+		delect(&head,num);
+	}
+	else if (i==3)
+	{
+		print(head);
 	}
 	else
 	{
@@ -92,7 +100,7 @@ struct Book *find(struct Book *head,int target){
 	{
 		if ( head->num = target)
 		{
-			t=1
+			t=1;
 			break;
 		}
 		head = head->next;
@@ -100,6 +108,16 @@ struct Book *find(struct Book *head,int target){
 	return (head);
 }
 
-struct Book *delect(struct Book *head,int target){
-	find
+int delect(struct Book **head,int target){
+	while (*head)
+	{
+		if ( (*head)->num = target)
+		{
+			*head = (*head)->next;
+			return (0)
+		}
+		head = &(*head)->next;
+	}
+	printf("can'tfind\n");
+	return (0);
 }
