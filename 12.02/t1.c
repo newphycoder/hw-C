@@ -16,7 +16,7 @@ int main(){
 	struct Book books[count];
 	for( i=0; i<count; i++)
 	{
-		printf("the %dth book's number\n",i+1);
+/*		printf("the %dth book's number\n",i+1);
 		scanf("%d",&books[i].number);
 		printf("the %dth book's name\n",i+1);
 		scanf("%s",books[i].name);
@@ -26,6 +26,12 @@ int main(){
 		scanf("%s",books[i].publisher);
 		printf("the %dth book's price\n",i+1);
 		scanf("%f",&books[i].price);
+*/		printf("input number name author publisher price\n");
+		scanf("%d%s%s%s%f",	&books[i].number,
+							books[i].name,
+							books[i].author,
+							books[i].publisher,
+							&books[i].price);
 	}
 
 	float sum=0;

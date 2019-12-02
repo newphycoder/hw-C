@@ -38,7 +38,7 @@ int input(struct student *sp[]){
 	int i;
 	for( i=0; i<total; i++)
 	{
-		printf("input the num of %dth student\n",i+1);
+/*		printf("input the num of %dth student\n",i+1);
 		scanf("%d",&sp[i]->num);
 		printf("input the name of %dth student\n",i+1);
 		scanf("%s",sp[i]->name);
@@ -49,6 +49,12 @@ int input(struct student *sp[]){
 		scanf("%d",&sp[i]->age);
 		printf("input the grade of %dth student\n",i+1);
 		scanf("%f",&sp[i]->grade);
+*/		printf("input num name sex age grade\n");
+		scanf("%d%s%1s%d%f",&sp[i]->num,
+							sp[i]->name,
+							&sp[i]->sex,
+							&sp[i]->age,
+							&sp[i]->grade);
 	}
 	return (0);
 }

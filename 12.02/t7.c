@@ -137,6 +137,7 @@ int delect(struct Book **head,int target){
 	{
 		if ( (*head)->num == target)
 		{
+			free(*head);
 			*head = (*head)->next;
 			t = 1;
 			break;
